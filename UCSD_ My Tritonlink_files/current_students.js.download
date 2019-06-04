@@ -1,0 +1,38 @@
+jQuery(document).ready(function($) {
+    $('.flexslider2').flexslider({
+		animation: "slide",
+		slideDirection: "horizontal",
+		slideToStart: 0,
+		controlNav: false,
+		slideshow : false,
+		directionNav : true,
+		start: function () {$('a.flex-prev').hide();},
+		before: function () {},
+		after: function(slider) {
+			   
+			   $('a.flex-prev').show(); 
+			   
+			   if (slider.currentSlide == slider.count - 1) { // is last slide
+					$('a.flex-next').hide();
+			   }
+			   else if (slider.currentSlide == slider.count >1){ 
+			   $('a.flex-next').show();
+			   }
+			   
+			   if (slider.currentSlide == slider.count < 1) { // is last slide
+					$('a.flex-prev').hide();
+			   }
+				
+			   if (slider.currentSlide == slider.count < 0) { // is last slide
+					$('a.flex-next').show();
+			   }
+				
+		}
+	
+	});
+	
+	
+	/* side nav */
+	$(".nav_list").superfish({speed:'fast'});
+
+});
